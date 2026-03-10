@@ -12,9 +12,9 @@ export default function Footer() {
             <Image
               src="/branding/the-bean-bar-co-site-logo.png"
               alt="The Bean Bar Co."
-              width={160}
-              height={46}
-              className="h-10 w-auto object-contain brightness-0 invert"
+              width={220}
+              height={63}
+              className="h-14 w-auto object-contain brightness-0 invert"
             />
             <p className="mt-2 text-sm text-white/80">
               Brewing Happiness, One Cup at a Time

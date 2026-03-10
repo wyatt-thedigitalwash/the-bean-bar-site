@@ -29,24 +29,13 @@ export default function CateringEventsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <Image
-          src="/assets/barista-operating-espresso-cart.jpeg"
-          alt="Barista operating The Bean Bar Co. mobile espresso cart at an event"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-brand-primary/70" />
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
-            Bring The Bean Bar To Your Event
-          </h1>
-          <p className="mt-4 text-white/90 max-w-xl mx-auto">
-            From intimate weddings to large corporate functions, we bring the coffee experience to you.
-          </p>
-        </div>
+      <section className="bg-brand-primary pt-32 pb-16 px-4 text-center">
+        <h1 className="font-playfair text-4xl md:text-5xl text-white font-bold">
+          Bring The Bean Bar To Your Event
+        </h1>
+        <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">
+          From intimate weddings to large corporate functions, we bring the coffee experience to you.
+        </p>
       </section>
 
       {/* Service Cards */}
@@ -54,12 +43,12 @@ export default function CateringEventsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Espresso Cart */}
           <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm">
-            <div className="relative aspect-[16/9]">
+            <div className="relative h-80">
               <Image
                 src="/assets/espresso-cart-branded-setup.jpeg"
                 alt="The Bean Bar Co. branded mobile espresso cart with Ascaso machine"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_top]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -87,7 +76,7 @@ export default function CateringEventsPage() {
 
           {/* Coffee Truck */}
           <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm">
-            <div className="relative aspect-[16/9]">
+            <div className="relative h-80">
               <Image
                 src="/assets/coffee-truck-branded-exterior.jpeg"
                 alt="The Bean Bar Co. branded coffee truck for outdoor events and catering"

@@ -15,22 +15,11 @@ export default function CarrollwoodPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <Image
-          src="/assets/carrollwood-storefront-exterior.jpeg"
-          alt="The Bean Bar Co. Carrollwood storefront exterior on N Dale Mabry Hwy"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-brand-primary/65" />
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
-            {loc.name}
-          </h1>
-          <p className="mt-4 text-white/90">{loc.neighborhoodNote}</p>
-        </div>
+      <section className="bg-brand-primary pt-32 pb-16 px-4 text-center">
+        <h1 className="font-playfair text-4xl md:text-5xl text-white font-bold">
+          {loc.name}
+        </h1>
+        <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">{loc.neighborhoodNote}</p>
       </section>
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">

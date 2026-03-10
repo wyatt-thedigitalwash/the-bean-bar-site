@@ -103,8 +103,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="relative order-2 md:order-1 aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/assets/coffee-truck-branded-exterior.jpeg"
-                alt="The Bean Bar Co. branded coffee truck for events and catering"
+                src="/assets/barista-operating-espresso-cart.jpeg"
+                alt="Barista operating The Bean Bar Co. espresso cart at an event"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -125,6 +125,42 @@ export default function Home() {
               >
                 Start Planning
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="bg-brand-surface py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-brand-primary uppercase tracking-widest text-sm font-semibold mb-4">Our Story</p>
+          <h2 className="font-heading text-4xl md:text-5xl text-brand-text font-bold mb-6">
+            More Than Just Coffee
+          </h2>
+          <p className="text-brand-muted text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+            The Bean Bar Co. was born out of a love for community, craft, and the simple joy a great cup of coffee brings. From our Carrollwood and Tampa Palms cafés to your next big event — we show up with passion in every pour.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center">
+                <Coffee className="text-brand-primary w-6 h-6" />
+              </div>
+              <h3 className="font-semibold text-brand-text">Handcrafted Daily</h3>
+              <p className="text-brand-muted text-sm text-center">Every drink made fresh to order, every single time.</p>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center">
+                <MapPin className="text-brand-primary w-6 h-6" />
+              </div>
+              <h3 className="font-semibold text-brand-text">Two Tampa Locations</h3>
+              <p className="text-brand-muted text-sm text-center">Carrollwood and Tampa Palms — neighborhood favorites.</p>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center">
+                <Truck className="text-brand-primary w-6 h-6" />
+              </div>
+              <h3 className="font-semibold text-brand-text">We Come To You</h3>
+              <p className="text-brand-muted text-sm text-center">Mobile cart and truck available for events across Tampa.</p>
             </div>
           </div>
         </div>

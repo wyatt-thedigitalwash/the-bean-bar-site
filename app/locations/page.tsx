@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import LocationCard from "@/components/LocationCard";
 import { LOCATIONS, HOURS } from "@/lib/constants";
 
@@ -24,24 +23,13 @@ export default function LocationsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <Image
-          src="/assets/interior-wall-branding-subway-tile.jpeg"
-          alt="The Bean Bar Co. interior branding on white subway tile wall"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-brand-primary/70" />
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
-            Our Locations
-          </h1>
-          <p className="mt-4 text-white/90">
-            Two Tampa locations serving your neighborhood.
-          </p>
-        </div>
+      <section className="bg-brand-primary pt-32 pb-16 px-4 text-center">
+        <h1 className="font-playfair text-4xl md:text-5xl text-white font-bold">
+          Our Locations
+        </h1>
+        <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">
+          Two Tampa locations serving your neighborhood.
+        </p>
       </section>
 
       {/* Location Cards */}

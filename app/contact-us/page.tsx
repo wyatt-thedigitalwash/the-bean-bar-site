@@ -14,24 +14,13 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <Image
-          src="/assets/barista-serving-customer-counter.jpeg"
-          alt="Barista serving a customer at The Bean Bar Co. counter with tea selection on wall"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-brand-primary/70" />
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
-            Contact Us
-          </h1>
-          <p className="mt-4 text-white/90">
-            We&apos;d love to hear from you.
-          </p>
-        </div>
+      <section className="bg-brand-primary pt-32 pb-16 px-4 text-center">
+        <h1 className="font-playfair text-4xl md:text-5xl text-white font-bold">
+          Contact Us
+        </h1>
+        <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">
+          We&apos;d love to hear from you.
+        </p>
       </section>
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
