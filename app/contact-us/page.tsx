@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { LOCATIONS, HOURS } from "@/lib/constants";
@@ -13,8 +14,17 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-brand-primary pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <Image
+          src="/assets/barista-serving-customer-counter.jpeg"
+          alt="Barista serving a customer at The Bean Bar Co. counter with tea selection on wall"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand-primary/70" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
             Contact Us
           </h1>
@@ -72,6 +82,17 @@ export default function ContactPage() {
                   <p className="text-sm text-brand-muted">{HOURS.weekend}</p>
                 </div>
               </div>
+            </div>
+
+            {/* Accent Image */}
+            <div className="relative h-48 rounded-2xl overflow-hidden mt-8">
+              <Image
+                src="/assets/front-door-logo-hours.jpeg"
+                alt="The Bean Bar Co. front door showing logo and business hours"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
 

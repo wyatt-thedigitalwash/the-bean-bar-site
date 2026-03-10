@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -66,12 +67,15 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link
-            href="/"
-            className="font-heading text-xl font-bold text-brand-primary"
-            aria-label="The Bean Bar Co. — Home"
-          >
-            The Bean Bar Co.
+          <Link href="/" aria-label="The Bean Bar Co. — Home">
+            <Image
+              src="/branding/the-bean-bar-co-site-logo.png"
+              alt="The Bean Bar Co."
+              width={160}
+              height={46}
+              priority
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Nav */}

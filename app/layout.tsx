@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "The Bean Bar Co. | Tampa's Favorite Coffee Shop",
   description:
     "Crafted with passion, served with love. Visit The Bean Bar Co. at Carrollwood or Tampa Palms for specialty coffee, breakfast, and catering in Tampa, FL.",
+  icons: {
+    icon: "/branding/the-bean-bar-co-site-favicon.png",
+  },
 };
 
 export default function RootLayout({

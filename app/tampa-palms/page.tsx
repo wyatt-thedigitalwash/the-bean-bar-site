@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { LOCATIONS, HOURS } from "@/lib/constants";
 
@@ -14,8 +15,17 @@ export default function TampaPalmsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-brand-primary pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <Image
+          src="/assets/tampa-palms-storefront-exterior.jpeg"
+          alt="The Bean Bar Co. Tampa Palms storefront exterior on Palm Pointe Dr"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand-primary/65" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
             {loc.name}
           </h1>
@@ -24,6 +34,17 @@ export default function TampaPalmsPage() {
       </section>
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        {/* Interior Image */}
+        <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-8">
+          <Image
+            src="/assets/tampa-palms-interior-seating-counter.jpeg"
+            alt="Inside The Bean Bar Co. Tampa Palms — seating area, counter, and flower window art"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+        </div>
+
         {/* Details Card */}
         <div className="bg-brand-surface rounded-2xl p-6 sm:p-8 shadow-sm mb-8">
           <div className="space-y-4">

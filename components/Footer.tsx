@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HOURS, SOCIALS } from "@/lib/constants";
 
 export default function Footer() {
@@ -8,9 +9,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="font-heading text-xl font-bold text-white">
-              The Bean Bar Co.
-            </h3>
+            <Image
+              src="/branding/the-bean-bar-co-site-logo.png"
+              alt="The Bean Bar Co."
+              width={160}
+              height={46}
+              className="h-10 w-auto object-contain brightness-0 invert"
+            />
             <p className="mt-2 text-sm text-white/80">
               Brewing Happiness, One Cup at a Time
             </p>

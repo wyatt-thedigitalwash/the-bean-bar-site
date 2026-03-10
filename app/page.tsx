@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Coffee,
   ShoppingBag,
@@ -8,7 +9,6 @@ import {
   Clock,
   Instagram,
   Facebook,
-  UtensilsCrossed,
 } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import { LOCATIONS, HOURS, SOCIALS } from "@/lib/constants";
@@ -88,17 +88,27 @@ export default function Home() {
                 Our Menu
               </Link>
             </div>
-            <div className="aspect-[4/3] rounded-2xl bg-brand-primary/10 flex flex-col items-center justify-center">
-              <Coffee className="h-16 w-16 text-brand-primary/40" />
-              <span className="mt-2 text-sm text-brand-primary/40">Photo coming soon</span>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/assets/espresso-machine-pulling-shot.jpeg"
+                alt="Espresso machine pulling a fresh shot at The Bean Bar Co."
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
 
           {/* Catering */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="order-2 md:order-1 aspect-[4/3] rounded-2xl bg-brand-primary/10 flex flex-col items-center justify-center">
-              <Truck className="h-16 w-16 text-brand-primary/40" />
-              <span className="mt-2 text-sm text-brand-primary/40">Photo coming soon</span>
+            <div className="relative order-2 md:order-1 aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/assets/coffee-truck-branded-exterior.jpeg"
+                alt="The Bean Bar Co. branded coffee truck for events and catering"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             <div className="order-1 md:order-2">
               <h2 className="font-heading text-3xl font-bold text-brand-text">
@@ -130,48 +140,63 @@ export default function Home() {
             {Object.values(LOCATIONS).map((loc) => (
               <div
                 key={loc.slug}
-                className="bg-brand-surface rounded-2xl p-6 sm:p-8 shadow-sm"
+                className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm"
               >
-                <h3 className="font-heading text-xl font-bold text-brand-text">
-                  {loc.name}
-                </h3>
-                <div className="mt-3 space-y-2">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="h-4 w-4 text-brand-primary mt-1 shrink-0" />
+                <div className="relative h-48">
+                  <Image
+                    src={
+                      loc.slug === "carrollwood"
+                        ? "/assets/carrollwood-storefront-exterior.jpeg"
+                        : "/assets/tampa-palms-storefront-exterior.jpeg"
+                    }
+                    alt={`The Bean Bar Co. ${loc.name} storefront`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h3 className="font-heading text-xl font-bold text-brand-text">
+                    {loc.name}
+                  </h3>
+                  <div className="mt-3 space-y-2">
+                    <div className="flex items-start gap-2">
+                      <MapPin className="h-4 w-4 text-brand-primary mt-1 shrink-0" />
+                      <a
+                        href={loc.googleMaps}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-brand-muted hover:text-brand-primary transition-colors"
+                      >
+                        {loc.address}
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-brand-primary shrink-0" />
+                      <a
+                        href={loc.phoneTel}
+                        className="text-sm text-brand-muted hover:text-brand-primary transition-colors"
+                      >
+                        {loc.phone}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="mt-5 flex flex-col sm:flex-row gap-3">
                     <a
-                      href={loc.googleMaps}
+                      href={loc.orderUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-brand-muted hover:text-brand-primary transition-colors"
+                      className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primaryDark"
                     >
-                      {loc.address}
+                      Order Online
                     </a>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-brand-primary shrink-0" />
-                    <a
-                      href={loc.phoneTel}
-                      className="text-sm text-brand-muted hover:text-brand-primary transition-colors"
+                    <Link
+                      href={`/${loc.slug}`}
+                      className="inline-flex items-center justify-center rounded-xl border-2 border-brand-primary text-brand-primary font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primary hover:text-white"
                     >
-                      {loc.phone}
-                    </a>
+                      View Location
+                    </Link>
                   </div>
-                </div>
-                <div className="mt-5 flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={loc.orderUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primaryDark"
-                  >
-                    Order Online
-                  </a>
-                  <Link
-                    href={`/${loc.slug}`}
-                    className="inline-flex items-center justify-center rounded-xl border-2 border-brand-primary text-brand-primary font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primary hover:text-white"
-                  >
-                    View Location
-                  </Link>
                 </div>
               </div>
             ))}

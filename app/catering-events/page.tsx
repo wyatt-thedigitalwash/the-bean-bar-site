@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Coffee, Truck, CheckCircle } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle } from "lucide-react";
 import CateringForm from "@/components/CateringForm";
 
 export const metadata: Metadata = {
@@ -28,8 +29,17 @@ export default function CateringEventsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-brand-primary pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <Image
+          src="/assets/barista-operating-espresso-cart.jpeg"
+          alt="Barista operating The Bean Bar Co. mobile espresso cart at an event"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand-primary/70" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
             Bring The Bean Bar To Your Event
           </h1>
@@ -44,9 +54,14 @@ export default function CateringEventsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Espresso Cart */}
           <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm">
-            <div className="aspect-[16/9] bg-brand-primary/10 flex flex-col items-center justify-center">
-              <Coffee className="h-16 w-16 text-brand-primary/40" />
-              <span className="mt-2 text-sm text-brand-primary/40">Photo coming soon</span>
+            <div className="relative aspect-[16/9]">
+              <Image
+                src="/assets/espresso-cart-branded-setup.jpeg"
+                alt="The Bean Bar Co. branded mobile espresso cart with Ascaso machine"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             <div className="p-6 sm:p-8">
               <h3 className="font-heading text-2xl font-bold text-brand-text">
@@ -72,9 +87,14 @@ export default function CateringEventsPage() {
 
           {/* Coffee Truck */}
           <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm">
-            <div className="aspect-[16/9] bg-brand-primary/10 flex flex-col items-center justify-center">
-              <Truck className="h-16 w-16 text-brand-primary/40" />
-              <span className="mt-2 text-sm text-brand-primary/40">Photo coming soon</span>
+            <div className="relative aspect-[16/9]">
+              <Image
+                src="/assets/coffee-truck-branded-exterior.jpeg"
+                alt="The Bean Bar Co. branded coffee truck for outdoor events and catering"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             <div className="p-6 sm:p-8">
               <h3 className="font-heading text-2xl font-bold text-brand-text">
