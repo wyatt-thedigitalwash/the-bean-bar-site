@@ -43,7 +43,7 @@ export default function LocationsPage() {
                 address={loc.address}
                 phone={loc.phone}
                 phoneTel={loc.phoneTel}
-                orderUrl={loc.orderUrl}
+                location={loc.slug as "carrollwood" | "tampa-palms"}
                 googleMaps={loc.googleMaps}
                 slug={loc.slug}
                 imageSrc={LOCATION_IMAGES[loc.slug]?.src}

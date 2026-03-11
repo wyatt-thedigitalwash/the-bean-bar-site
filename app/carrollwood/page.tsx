@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { LOCATIONS, HOURS } from "@/lib/constants";
+import OrderButton from "@/components/OrderButton";
 
 const loc = LOCATIONS.carrollwood;
 
@@ -69,15 +70,13 @@ export default function CarrollwoodPage() {
           </div>
 
           <div className="mt-6">
-            <a
-              href={loc.orderUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <OrderButton
+              location="carrollwood"
               className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-6 py-3 transition-colors hover:bg-brand-primaryDark"
-              aria-label="Order online from Carrollwood"
+              ariaLabel="Order online from Carrollwood"
             >
               Order Online
-            </a>
+            </OrderButton>
           </div>
         </div>
 

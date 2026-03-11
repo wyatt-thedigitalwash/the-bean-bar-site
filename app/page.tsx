@@ -11,9 +11,15 @@ import {
   Facebook,
 } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
+import OrderButton from "@/components/OrderButton";
 import { LOCATIONS, HOURS, SOCIALS } from "@/lib/constants";
+import type { LocationKey } from "@/lib/stores/order-modal-store";
 
-const QUICK_ACTIONS = [
+type QuickAction =
+  | { href: string; icon: React.ComponentType<{ className?: string }>; title: string; description: string }
+  | { location: LocationKey; icon: React.ComponentType<{ className?: string }>; title: string; description: string };
+
+const QUICK_ACTIONS: QuickAction[] = [
   {
     href: "/menu",
     icon: Coffee,
@@ -21,13 +27,13 @@ const QUICK_ACTIONS = [
     description: "Explore our coffee, teas, and food options",
   },
   {
-    href: "/order?location=carrollwood",
+    location: "carrollwood",
     icon: ShoppingBag,
     title: "Order — Carrollwood",
     description: "Order ahead for pickup at Carrollwood",
   },
   {
-    href: "/order?location=tampa-palms",
+    location: "tampa-palms",
     icon: ShoppingBag,
     title: "Order — Tampa Palms",
     description: "Order ahead for pickup at Tampa Palms",
@@ -49,21 +55,38 @@ export default function Home() {
       {/* Quick Action Cards */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {QUICK_ACTIONS.map((action) => (
-            <Link
-              key={action.href}
-              href={action.href}
-              className="group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1"
-            >
-              <action.icon className="h-8 w-8 text-brand-primary mb-4" />
-              <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
-                {action.title}
-              </h3>
-              <p className="mt-1 text-sm text-brand-muted">
-                {action.description}
-              </p>
-            </Link>
-          ))}
+          {QUICK_ACTIONS.map((action) =>
+            "location" in action ? (
+              <OrderButton
+                key={action.title}
+                location={action.location}
+                className="group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1 text-left"
+                ariaLabel={action.title}
+              >
+                <action.icon className="h-8 w-8 text-brand-primary mb-4" />
+                <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
+                  {action.title}
+                </h3>
+                <p className="mt-1 text-sm text-brand-muted">
+                  {action.description}
+                </p>
+              </OrderButton>
+            ) : (
+              <Link
+                key={action.href}
+                href={action.href}
+                className="group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1"
+              >
+                <action.icon className="h-8 w-8 text-brand-primary mb-4" />
+                <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
+                  {action.title}
+                </h3>
+                <p className="mt-1 text-sm text-brand-muted">
+                  {action.description}
+                </p>
+              </Link>
+            )
+          )}
         </div>
       </section>
 
@@ -218,14 +241,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="mt-5 flex flex-col sm:flex-row gap-3">
-                    <a
-                      href={loc.orderUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <OrderButton
+                      location={loc.slug as LocationKey}
                       className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primaryDark"
+                      ariaLabel={`Order online from ${loc.name}`}
                     >
                       Order Online
-                    </a>
+                    </OrderButton>
                     <Link
                       href={`/${loc.slug}`}
                       className="inline-flex items-center justify-center rounded-xl border-2 border-brand-primary text-brand-primary font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primary hover:text-white"

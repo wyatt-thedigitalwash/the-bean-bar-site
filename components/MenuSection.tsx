@@ -7,11 +7,12 @@ import {
   MENU_TABS,
   FLAVORS,
   ALT_MILKS,
-  LOCATIONS,
 } from "@/lib/constants";
+import { useOrderModal } from "@/lib/stores/order-modal-store";
 
 export default function MenuSection() {
   const [activeTab, setActiveTab] = useState("coffee-espresso");
+  const openOrder = useOrderModal((s) => s.open);
 
   const visibleCategories =
     activeTab === "coffee-espresso"
@@ -24,24 +25,20 @@ export default function MenuSection() {
     <div>
       {/* Order Online CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
-        <a
-          href={LOCATIONS.carrollwood.orderUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => openOrder("carrollwood")}
           className="flex-1 inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-3 text-sm transition-colors hover:bg-brand-primaryDark"
           aria-label="Order online from Carrollwood"
         >
           Order Online — Carrollwood
-        </a>
-        <a
-          href={LOCATIONS["tampa-palms"].orderUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        </button>
+        <button
+          onClick={() => openOrder("tampa-palms")}
           className="flex-1 inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-3 text-sm transition-colors hover:bg-brand-primaryDark"
           aria-label="Order online from Tampa Palms"
         >
           Order Online — Tampa Palms
-        </a>
+        </button>
       </div>
 
       {/* Tabs */}
