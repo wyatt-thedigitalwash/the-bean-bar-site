@@ -62,7 +62,7 @@ export default function ContactForm() {
           required
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text"
+          className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text"
         />
       </div>
 
@@ -77,7 +77,7 @@ export default function ContactForm() {
             required
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text"
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text"
           />
         </div>
         <div>
@@ -90,7 +90,7 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text"
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text"
           />
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function ContactForm() {
           required
           value={form.requestType}
           onChange={(e) => setForm({ ...form, requestType: e.target.value })}
-          className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text"
+          className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text"
         >
           <option value="">Select a request type</option>
           {REQUEST_TYPES.map((t) => (
@@ -123,7 +123,7 @@ export default function ContactForm() {
             type="date"
             value={form.eventDate}
             onChange={(e) => setForm({ ...form, eventDate: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text"
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text"
           />
         </div>
         <div>
@@ -134,7 +134,7 @@ export default function ContactForm() {
             id="contact-event-size"
             value={form.eventSize}
             onChange={(e) => setForm({ ...form, eventSize: e.target.value })}
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text"
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text"
           >
             <option value="">Select event size</option>
             {EVENT_SIZES.map((s) => (
@@ -154,14 +154,14 @@ export default function ContactForm() {
           rows={4}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white text-brand-text resize-none"
+          className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:border-brand-primary focus:shadow-[0_0_0_3px_rgba(51,138,130,0.12)] transition-all bg-white text-brand-text resize-none"
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primaryDark text-white rounded-xl px-6 py-3 font-medium transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+        className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primaryDark text-white rounded-xl px-6 py-3 font-medium transition-all disabled:opacity-60 flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.98]"
         aria-label="Send contact form"
       >
         {status === "loading" && <Loader2 className="h-4 w-4 animate-spin" />}

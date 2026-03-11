@@ -3,6 +3,7 @@ import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { LOCATIONS, HOURS } from "@/lib/constants";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Contact Us | The Bean Bar Co.",
@@ -23,7 +24,7 @@ export default function ContactPage() {
         </p>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <FadeIn className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
@@ -79,7 +80,7 @@ export default function ContactPage() {
                 src="/assets/front-door-logo-hours.jpeg"
                 alt="The Bean Bar Co. front door showing logo and business hours"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
@@ -95,7 +96,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </FadeIn>
     </>
   );
 }

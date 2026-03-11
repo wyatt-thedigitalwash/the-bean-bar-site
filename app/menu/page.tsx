@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MenuSection from "@/components/MenuSection";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Our Menu | The Bean Bar Co. | Coffee & Bites in Tampa",
@@ -21,9 +22,9 @@ export default function MenuPage() {
       </section>
 
       {/* Menu Content */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <FadeIn className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <MenuSection />
-      </section>
+      </FadeIn>
     </>
   );
 }

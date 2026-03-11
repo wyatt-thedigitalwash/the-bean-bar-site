@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import OrderButton from "@/components/OrderButton";
+import { FadeIn, StaggerGrid, StaggerItem } from "@/components/motion";
 import { LOCATIONS, HOURS, SOCIALS } from "@/lib/constants";
 import type { LocationKey } from "@/lib/stores/order-modal-store";
 
@@ -54,46 +55,52 @@ export default function Home() {
 
       {/* Quick Action Cards */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {QUICK_ACTIONS.map((action) =>
             "location" in action ? (
-              <OrderButton
-                key={action.title}
-                location={action.location}
-                className="group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1 text-left"
-                ariaLabel={action.title}
-              >
-                <action.icon className="h-8 w-8 text-brand-primary mb-4" />
-                <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
-                  {action.title}
-                </h3>
-                <p className="mt-1 text-sm text-brand-muted">
-                  {action.description}
-                </p>
-              </OrderButton>
+              <StaggerItem key={action.title}>
+                <OrderButton
+                  location={action.location}
+                  className="group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1 text-left w-full h-full"
+                  ariaLabel={action.title}
+                >
+                  <action.icon className="h-8 w-8 text-brand-primary mb-4" />
+                  <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
+                    {action.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-brand-muted">
+                    {action.description}
+                  </p>
+                </OrderButton>
+              </StaggerItem>
             ) : (
-              <Link
-                key={action.href}
-                href={action.href}
-                className="group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1"
-              >
-                <action.icon className="h-8 w-8 text-brand-primary mb-4" />
-                <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
-                  {action.title}
-                </h3>
-                <p className="mt-1 text-sm text-brand-muted">
-                  {action.description}
-                </p>
-              </Link>
+              <StaggerItem key={action.href}>
+                <Link
+                  href={action.href}
+                  className="block group bg-brand-surface rounded-2xl p-6 shadow-sm hover:shadow-md border-2 border-transparent hover:border-brand-primary transition-all hover:-translate-y-1"
+                >
+                  <action.icon className="h-8 w-8 text-brand-primary mb-4" />
+                  <h3 className="font-heading text-lg font-bold text-brand-text group-hover:text-brand-primary transition-colors">
+                    {action.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-brand-muted">
+                    {action.description}
+                  </p>
+                </Link>
+              </StaggerItem>
             )
           )}
-        </div>
+        </StaggerGrid>
       </section>
+
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent max-w-4xl mx-auto" />
 
       {/* What We Offer */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="space-y-16">
           {/* Bold Brews */}
+          <FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="font-heading text-3xl font-bold text-brand-text">
@@ -106,7 +113,7 @@ export default function Home() {
               </p>
               <Link
                 href="/menu"
-                className="inline-flex items-center mt-6 bg-brand-primary hover:bg-brand-primaryDark text-white rounded-xl px-6 py-3 font-medium transition-colors"
+                className="inline-flex items-center mt-6 bg-brand-primary hover:bg-brand-primaryDark text-white rounded-xl px-6 py-3 font-medium transition-all hover:scale-[1.03] active:scale-[0.98]"
               >
                 Our Menu
               </Link>
@@ -116,20 +123,22 @@ export default function Home() {
                 src="/assets/espresso-machine-pulling-shot.jpeg"
                 alt="Espresso machine pulling a fresh shot at The Bean Bar Co."
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
+          </FadeIn>
 
           {/* Catering */}
+          <FadeIn delay={0.1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="relative order-2 md:order-1 aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/assets/barista-operating-espresso-cart.jpeg"
                 alt="Barista operating The Bean Bar Co. espresso cart at an event"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -144,18 +153,19 @@ export default function Home() {
               </p>
               <Link
                 href="/catering-events"
-                className="inline-flex items-center mt-6 bg-brand-primary hover:bg-brand-primaryDark text-white rounded-xl px-6 py-3 font-medium transition-colors"
+                className="inline-flex items-center mt-6 bg-brand-primary hover:bg-brand-primaryDark text-white rounded-xl px-6 py-3 font-medium transition-all hover:scale-[1.03] active:scale-[0.98]"
               >
                 Start Planning
               </Link>
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Our Story */}
       <section className="bg-brand-surface py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <FadeIn className="max-w-4xl mx-auto text-center">
           <p className="text-brand-primary uppercase tracking-widest text-sm font-semibold mb-4">Our Story</p>
           <h2 className="font-heading text-4xl md:text-5xl text-brand-text font-bold mb-6">
             More Than Just Coffee
@@ -163,35 +173,35 @@ export default function Home() {
           <p className="text-brand-muted text-lg leading-relaxed max-w-2xl mx-auto mb-8">
             The Bean Bar Co. was born out of a love for community, craft, and the simple joy a great cup of coffee brings. From our Carrollwood and Tampa Palms cafés to your next big event — we show up with passion in every pour.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="flex flex-col items-center gap-3">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <StaggerItem className="flex flex-col items-center gap-3">
               <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center">
                 <Coffee className="text-brand-primary w-6 h-6" />
               </div>
               <h3 className="font-semibold text-brand-text">Handcrafted Daily</h3>
               <p className="text-brand-muted text-sm text-center">Every drink made fresh to order, every single time.</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
+            </StaggerItem>
+            <StaggerItem className="flex flex-col items-center gap-3">
               <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center">
                 <MapPin className="text-brand-primary w-6 h-6" />
               </div>
               <h3 className="font-semibold text-brand-text">Two Tampa Locations</h3>
               <p className="text-brand-muted text-sm text-center">Carrollwood and Tampa Palms — neighborhood favorites.</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
+            </StaggerItem>
+            <StaggerItem className="flex flex-col items-center gap-3">
               <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center">
                 <Truck className="text-brand-primary w-6 h-6" />
               </div>
               <h3 className="font-semibold text-brand-text">We Come To You</h3>
               <p className="text-brand-muted text-sm text-center">Mobile cart and truck available for events across Tampa.</p>
-            </div>
-          </div>
-        </div>
+            </StaggerItem>
+          </StaggerGrid>
+        </FadeIn>
       </section>
 
       {/* Find Us */}
       <section className="py-16 bg-brand-bg">
-        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <FadeIn className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <h2 className="font-heading text-3xl font-bold text-brand-text text-center mb-10">
             Find Us
           </h2>
@@ -199,9 +209,9 @@ export default function Home() {
             {Object.values(LOCATIONS).map((loc) => (
               <div
                 key={loc.slug}
-                className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm"
+                className="group bg-brand-surface rounded-2xl overflow-hidden shadow-sm"
               >
-                <div className="relative h-48">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src={
                       loc.slug === "carrollwood"
@@ -210,7 +220,7 @@ export default function Home() {
                     }
                     alt={`The Bean Bar Co. ${loc.name} storefront`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -243,14 +253,14 @@ export default function Home() {
                   <div className="mt-5 flex flex-col sm:flex-row gap-3">
                     <OrderButton
                       location={loc.slug as LocationKey}
-                      className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primaryDark"
+                      className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-all hover:bg-brand-primaryDark hover:scale-[1.03] active:scale-[0.98]"
                       ariaLabel={`Order online from ${loc.name}`}
                     >
                       Order Online
                     </OrderButton>
                     <Link
                       href={`/${loc.slug}`}
-                      className="inline-flex items-center justify-center rounded-xl border-2 border-brand-primary text-brand-primary font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primary hover:text-white"
+                      className="inline-flex items-center justify-center rounded-xl border-2 border-brand-primary text-brand-primary font-medium px-5 py-2.5 text-sm transition-all hover:bg-brand-primary hover:text-white hover:scale-[1.03] active:scale-[0.98]"
                     >
                       View Location
                     </Link>
@@ -259,11 +269,14 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </section>
 
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent max-w-4xl mx-auto" />
+
       {/* Hours */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <FadeIn className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-brand-surface rounded-2xl p-8 sm:p-10 max-w-lg mx-auto text-center shadow-sm">
           <Clock className="h-8 w-8 text-brand-primary mx-auto mb-4" />
           <h2 className="font-heading text-2xl font-bold text-brand-text mb-4">
@@ -272,11 +285,14 @@ export default function Home() {
           <p className="text-brand-text">{HOURS.weekday}</p>
           <p className="text-brand-text mt-1">{HOURS.weekend}</p>
         </div>
-      </section>
+      </FadeIn>
+
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent max-w-4xl mx-auto" />
 
       {/* Follow Us */}
       <section className="py-16 bg-brand-bg">
-        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <FadeIn className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
           <h2 className="font-heading text-3xl font-bold text-brand-text mb-3">
             Follow Us
           </h2>
@@ -288,7 +304,7 @@ export default function Home() {
               href={SOCIALS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-brand-primary text-brand-primary rounded-xl px-6 py-3 font-medium transition-colors hover:bg-brand-primary hover:text-white"
+              className="inline-flex items-center gap-2 border-2 border-brand-primary text-brand-primary rounded-xl px-6 py-3 font-medium transition-all hover:bg-brand-primary hover:text-white hover:scale-[1.03] active:scale-[0.98]"
               aria-label="Follow us on Instagram"
             >
               <Instagram className="h-5 w-5" />
@@ -298,29 +314,29 @@ export default function Home() {
               href={SOCIALS.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-brand-primary text-brand-primary rounded-xl px-6 py-3 font-medium transition-colors hover:bg-brand-primary hover:text-white"
+              className="inline-flex items-center gap-2 border-2 border-brand-primary text-brand-primary rounded-xl px-6 py-3 font-medium transition-all hover:bg-brand-primary hover:text-white hover:scale-[1.03] active:scale-[0.98]"
               aria-label="Follow us on Facebook"
             >
               <Facebook className="h-5 w-5" />
               Facebook
             </a>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Contact CTA Banner */}
-      <section className="bg-brand-primary py-16">
-        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+      <section className="bg-gradient-to-br from-brand-primary to-brand-primaryDark py-16">
+        <FadeIn className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
           <h2 className="font-heading text-3xl font-bold text-white mb-4">
             Have a question or want to book catering?
           </h2>
           <Link
             href="/contact-us"
-            className="inline-flex items-center justify-center bg-white text-brand-text font-semibold rounded-xl px-8 py-3.5 transition-colors hover:bg-gray-100"
+            className="inline-flex items-center justify-center bg-white text-brand-text font-semibold rounded-xl px-8 py-3.5 transition-all hover:bg-gray-100 hover:scale-[1.03] active:scale-[0.98]"
           >
             Get in Touch
           </Link>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { LOCATIONS, HOURS } from "@/lib/constants";
 import OrderButton from "@/components/OrderButton";
+import { FadeIn } from "@/components/motion";
 
 const loc = LOCATIONS["tampa-palms"];
 
@@ -23,14 +24,14 @@ export default function TampaPalmsPage() {
         <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">{loc.neighborhoodNote}</p>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <FadeIn className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         {/* Interior Image */}
         <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-8">
           <Image
             src="/assets/tampa-palms-interior-seating-counter.jpeg"
             alt="Inside The Bean Bar Co. Tampa Palms — seating area, counter, and flower window art"
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 hover:scale-105"
             sizes="(max-width: 768px) 100vw, 896px"
           />
         </div>
@@ -72,7 +73,7 @@ export default function TampaPalmsPage() {
           <div className="mt-6">
             <OrderButton
               location="tampa-palms"
-              className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-6 py-3 transition-colors hover:bg-brand-primaryDark"
+              className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-6 py-3 transition-all hover:bg-brand-primaryDark hover:scale-[1.03] active:scale-[0.98]"
               ariaLabel="Order online from Tampa Palms"
             >
               Order Online
@@ -93,7 +94,7 @@ export default function TampaPalmsPage() {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
-      </section>
+      </FadeIn>
     </>
   );
 }

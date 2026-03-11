@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import CateringForm from "@/components/CateringForm";
+import { FadeIn, StaggerGrid, StaggerItem } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Catering & Events | The Bean Bar Co.",
@@ -40,15 +41,16 @@ export default function CateringEventsPage() {
 
       {/* Service Cards */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Espresso Cart */}
-          <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm">
-            <div className="relative h-80">
+          <StaggerItem>
+          <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm h-full">
+            <div className="relative h-80 overflow-hidden">
               <Image
                 src="/assets/espresso-cart-branded-setup.jpeg"
                 alt="The Bean Bar Co. branded mobile espresso cart with Ascaso machine"
                 fill
-                className="object-cover object-[center_top]"
+                className="object-cover object-[center_top] transition-transform duration-500 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -73,15 +75,17 @@ export default function CateringEventsPage() {
               </ul>
             </div>
           </div>
+          </StaggerItem>
 
           {/* Coffee Truck */}
-          <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm">
-            <div className="relative h-80">
+          <StaggerItem>
+          <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm h-full">
+            <div className="relative h-80 overflow-hidden">
               <Image
                 src="/assets/coffee-truck-branded-exterior.jpeg"
                 alt="The Bean Bar Co. branded coffee truck for outdoor events and catering"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -106,12 +110,13 @@ export default function CateringEventsPage() {
               </ul>
             </div>
           </div>
-        </div>
+          </StaggerItem>
+        </StaggerGrid>
       </section>
 
       {/* Catering Form */}
       <section className="py-16 bg-brand-bg">
-        <div className="px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto">
+        <FadeIn className="px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto">
           <h2 className="font-heading text-3xl font-bold text-brand-text text-center mb-2">
             Let&apos;s Make It Happen
           </h2>
@@ -121,7 +126,7 @@ export default function CateringEventsPage() {
           <div className="bg-brand-surface rounded-2xl p-6 sm:p-8 shadow-sm">
             <CateringForm />
           </div>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

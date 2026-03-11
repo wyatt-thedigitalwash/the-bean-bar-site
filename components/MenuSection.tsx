@@ -27,14 +27,14 @@ export default function MenuSection() {
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
         <button
           onClick={() => openOrder("carrollwood")}
-          className="flex-1 inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-3 text-sm transition-colors hover:bg-brand-primaryDark"
+          className="flex-1 inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-3 text-sm transition-all hover:bg-brand-primaryDark hover:scale-[1.03] active:scale-[0.98]"
           aria-label="Order online from Carrollwood"
         >
           Order Online — Carrollwood
         </button>
         <button
           onClick={() => openOrder("tampa-palms")}
-          className="flex-1 inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-3 text-sm transition-colors hover:bg-brand-primaryDark"
+          className="flex-1 inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-3 text-sm transition-all hover:bg-brand-primaryDark hover:scale-[1.03] active:scale-[0.98]"
           aria-label="Order online from Tampa Palms"
         >
           Order Online — Tampa Palms
@@ -79,22 +79,22 @@ export default function MenuSection() {
                       {item.name}
                     </span>
                     {item.badge === "special" && (
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-brand-primary bg-brand-primary/10 px-2 py-0.5 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded-full">
                         <Star className="h-3 w-3" /> House Special
                       </span>
                     )}
                     {item.badge === "V" && (
-                      <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-medium text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded-full">
                         V
                       </span>
                     )}
                     {item.badge === "GF" && (
-                      <span className="text-xs font-medium text-brand-primary bg-brand-primary/10 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-medium text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded-full">
                         GF
                       </span>
                     )}
                   </div>
-                  <span className="text-brand-primary font-semibold text-sm whitespace-nowrap ml-4">
+                  <span className="text-brand-accent font-semibold text-sm whitespace-nowrap ml-4">
                     {item.price}
                   </span>
                 </div>
@@ -114,7 +114,7 @@ export default function MenuSection() {
                 {FLAVORS.map((f) => (
                   <span
                     key={f}
-                    className="text-sm bg-brand-primary/10 text-brand-primary px-3 py-1.5 rounded-full"
+                    className="text-sm bg-brand-accent/10 text-brand-accent px-3 py-1.5 rounded-full"
                   >
                     {f}
                   </span>
@@ -129,7 +129,7 @@ export default function MenuSection() {
                 {ALT_MILKS.map((m) => (
                   <span
                     key={m}
-                    className="text-sm bg-brand-primary/10 text-brand-primary px-3 py-1.5 rounded-full"
+                    className="text-sm bg-brand-accent/10 text-brand-accent px-3 py-1.5 rounded-full"
                   >
                     {m}
                   </span>

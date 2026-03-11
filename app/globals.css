@@ -7,6 +7,7 @@
   --color-brand-surface: #FFFFFF;
   --color-brand-text: #1A1A1A;
   --color-brand-muted: #6B7280;
+  --color-brand-accent: #C9973A;
   --font-heading: var(--font-playfair);
   --font-body: var(--font-inter);
 }

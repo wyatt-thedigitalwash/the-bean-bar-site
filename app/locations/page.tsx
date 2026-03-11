@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LocationCard from "@/components/LocationCard";
 import { LOCATIONS, HOURS } from "@/lib/constants";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Locations | The Bean Bar Co. | Carrollwood & Tampa Palms",
@@ -34,7 +35,7 @@ export default function LocationsPage() {
 
       {/* Location Cards */}
       <section className="py-16 bg-brand-bg">
-        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <FadeIn className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {Object.values(LOCATIONS).map((loc) => (
               <LocationCard
@@ -56,7 +57,7 @@ export default function LocationsPage() {
             <p className="text-brand-text font-medium">{HOURS.weekday}</p>
             <p className="text-brand-text mt-1">{HOURS.weekend}</p>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

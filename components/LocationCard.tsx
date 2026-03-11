@@ -28,14 +28,14 @@ export default function LocationCard({
   imageAlt,
 }: LocationCardProps) {
   return (
-    <div className="bg-brand-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div className="group bg-brand-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       {imageSrc && (
-        <div className="relative h-48">
+        <div className="relative h-48 overflow-hidden">
           <Image
             src={imageSrc}
             alt={imageAlt || `The Bean Bar Co. ${name}`}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
@@ -73,7 +73,7 @@ export default function LocationCard({
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
           <OrderButton
             location={location}
-            className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-colors hover:bg-brand-primaryDark"
+            className="inline-flex items-center justify-center rounded-xl bg-brand-primary text-white font-medium px-5 py-2.5 text-sm transition-all hover:bg-brand-primaryDark hover:scale-[1.03] active:scale-[0.98]"
             ariaLabel={`Order online from ${name}`}
           >
             Order Online
